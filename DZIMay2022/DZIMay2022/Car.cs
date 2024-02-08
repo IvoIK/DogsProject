@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DZIMay2022
+{
+    public class Car
+    {
+        public string Brand { get; set; }
+
+        public int Year { get; set; }
+
+        public int Mileage { get; set; }
+
+        public decimal Value { get; set; }
+
+        public Car(string brand, int year, int mileage, decimal value) 
+        {
+            Brand = brand;
+            Year = year;
+            Mileage = mileage;
+            Value = value;
+        }
+
+        public virtual void Price()
+        {
+            if (Year >= 2019)
+            {
+                Value -= Value * 20 / 100;
+            }
+            else if (Year >= 2016 && Year <= 2018)
+            {
+                Value -= Value * 40 / 100;
+            }
+            else if (Year < 2016)
+            {
+                Value -= Value * 70 / 100;
+            }
+        }
+    }
+}
